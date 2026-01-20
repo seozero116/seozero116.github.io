@@ -17,6 +17,7 @@
       --shadow:0 10px 24px rgba(0,0,0,.06);
       --radius:16px;
     }
+  
 
     *{ box-sizing:border-box; }
     body{
@@ -105,6 +106,21 @@
       text-align:center;
       box-shadow:var(--shadow);
     }
+.brand{
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  margin-bottom:12px;
+}
+
+.logo{
+  max-height:72px;
+  width:auto;
+}
+
+@media (max-width:768px){
+  .logo{ max-height:52px; }
+}
     .hero h1{
       margin:0;
       font-size:42px;
@@ -253,7 +269,11 @@
   <!-- Header -->
   <header>
     <div class="nav">
-      <div class="logo">(주)루미스</div>
+      <a class="top-brand" href="#about">
+  <img src="루미스%20로고.png" alt="(주)루미스 로고" class="top-logo">
+  <span class="top-name">(주)루미스</span>
+</a>
+
       <nav class="menu">
         <a href="#about" class="active">회사소개</a>
         <a href="#history">주요연혁</a>
@@ -268,10 +288,13 @@
 
     <!-- 회사소개 -->
     <section id="about" class="page active">
-      <div class="hero">
-        <h1>LUMIS</h1>
-        <p>전자·반도체 유통의 신뢰 파트너</p>
-      </div>
+    <div class="hero">
+  <div class="brand">
+    <img src="루미스%20로고.png" alt="(주)루미스 LUMIS 로고" class="logo">
+  </div>
+  <p>전자·반도체 유통의 신뢰 파트너</p>
+</div>
+
 
       <h2>회사소개</h2>
       <p class="muted">
