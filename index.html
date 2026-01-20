@@ -2,278 +2,238 @@
 <html lang="ko">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>seozero | 공식 홈페이지</title>
-  <style>
-    :root{
-      --bg:#0b1220;
-      --text:#111;
-      --brand:#e11d2e;
-      --muted:#6b7280;
-      --border:#e5e7eb;
-      --card:#fff;
-      --max:1100px;
-    }
-    *{box-sizing:border-box}
-    body{margin:0;font-family:-apple-system,BlinkMacSystemFont,"Apple SD Gothic Neo","Noto Sans KR","Malgun Gothic",sans-serif;color:var(--text)}
-    a{color:inherit;text-decoration:none}
+  <title>(주)루미스 | 공식 홈페이지</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-    /* Top bar */
-    .topbar{
-      position:sticky; top:0; z-index:50;
-      background:#fff;
-      border-bottom:1px solid var(--border);
+  <style>
+    body{
+      margin:0;
+      font-family: -apple-system, BlinkMacSystemFont,
+        "Apple SD Gothic Neo","Noto Sans KR","Malgun Gothic",sans-serif;
+      color:#222;
+      line-height:1.6;
     }
-    .topbar-inner{
-      max-width:var(--max);
+    a{ text-decoration:none; color:inherit; }
+
+    /* ===== Header ===== */
+    header{
+      position: sticky;
+      top:0;
+      z-index:1000;
+      background:#0f172a;
+      color:#fff;
+    }
+    .nav{
+      max-width:1200px;
       margin:0 auto;
-      padding:14px 16px;
       display:flex;
       align-items:center;
-      gap:18px;
+      justify-content:space-between;
+      padding:14px 20px;
     }
     .logo{
+      font-size:20px;
       font-weight:900;
-      letter-spacing:-.5px;
-      display:flex; align-items:center; gap:10px;
-      white-space:nowrap;
+      letter-spacing:-0.5px;
     }
-    .logo-badge{
-      width:28px;height:28px;border-radius:6px;background:var(--brand);
-      display:inline-block;
+    .menu{
+      display:flex;
+      gap:24px;
+      font-size:15px;
+      font-weight:600;
     }
+    .menu a{ opacity:.9; }
+    .menu a:hover{ opacity:1; }
 
-    .nav{margin-left:auto; display:flex; gap:18px; align-items:center}
-    .nav > li{list-style:none; position:relative}
-    .nav > li > button{
-      background:transparent;border:0;cursor:pointer;
-      font-size:15px; padding:10px 8px;
-    }
-    .nav > li > button:hover{color:var(--brand)}
-
-    /* Mega menu */
-    .mega{
-      position:absolute;
-      left:50%;
-      transform:translateX(-50%);
-      top:48px;
-      width:min(980px, 92vw);
-      background:#fff;
-      border:1px solid var(--border);
-      border-radius:12px;
-      box-shadow:0 18px 40px rgba(0,0,0,.12);
-      padding:18px 18px 8px;
-      display:none;
-    }
-    .mega-grid{
-      display:grid;
-      grid-template-columns:repeat(6, minmax(0, 1fr));
-      gap:14px;
-    }
-    .mega-col h4{
-      margin:0 0 10px;
-      font-size:14px;
-      color:#111;
-      padding-bottom:10px;
-      border-bottom:2px solid #111;
-    }
-    .mega-col a{
-      display:block;
-      padding:8px 4px;
-      font-size:14px;
-      color:#222;
-      border-radius:8px;
-    }
-    .mega-col a:hover{
-      background:#f3f4f6;
-      color:var(--brand);
-    }
-
-    /* show mega on hover (desktop) */
-    @media (hover:hover){
-      .nav > li:hover .mega{display:block;}
-    }
-
-    /* Right tools */
-    .tools{display:flex; gap:10px; align-items:center}
-    .pill{
-      border:1px solid var(--border);
-      padding:8px 10px;
-      border-radius:999px;
-      font-size:13px;
-      color:#111;
-      background:#fff;
-    }
-    .iconbtn{
-      width:36px;height:36px;border-radius:10px;border:1px solid var(--border);
-      background:#fff; cursor:pointer;
-    }
-
-    /* Hero */
+    /* ===== Hero ===== */
     .hero{
-      background:linear-gradient(180deg, var(--bg), #050915);
+      background:linear-gradient(135deg,#020617,#0f172a);
       color:#fff;
-      padding:80px 16px 70px;
-    }
-    .hero-inner{
-      max-width:var(--max);
-      margin:0 auto;
+      padding:120px 20px;
       text-align:center;
     }
-    .hero h1{margin:0 0 10px; font-size:44px; letter-spacing:-1px}
-    .hero p{margin:0 auto 22px; max-width:680px; color:#d1d5db}
-    .cta{
-      display:inline-block;
-      padding:12px 18px;
-      border-radius:10px;
-      background:#2563eb;
-      color:#fff;
-      font-weight:700;
+    .hero h1{
+      margin:0;
+      font-size:44px;
+      font-weight:900;
+      letter-spacing:-1px;
+    }
+    .hero p{
+      margin:16px 0 0;
+      color:#cbd5f5;
+      font-size:18px;
     }
 
-    /* Sections */
-    section{max-width:var(--max); margin:56px auto; padding:0 16px}
-    .section-title{margin:0 0 14px; font-size:26px}
-    .muted{color:var(--muted)}
+    /* ===== Section Common ===== */
+    section{
+      max-width:1200px;
+      margin:0 auto;
+      padding:90px 20px;
+    }
+    section h2{
+      margin:0 0 14px;
+      font-size:28px;
+      font-weight:900;
+      letter-spacing:-0.6px;
+    }
+    .muted{
+      color:#555;
+      font-size:15px;
+      max-width:900px;
+    }
+
+    /* ===== Cards ===== */
     .cards{
+      margin-top:28px;
       display:grid;
-      grid-template-columns:repeat(3, minmax(0, 1fr));
-      gap:16px;
-      margin-top:16px;
+      grid-template-columns:repeat(auto-fit,minmax(240px,1fr));
+      gap:20px;
     }
     .card{
-      background:var(--card);
-      border:1px solid var(--border);
-      border-radius:14px;
-      padding:18px;
-      min-height:120px;
+      border:1px solid #e5e7eb;
+      border-radius:16px;
+      padding:22px;
+      background:#fff;
+      box-shadow:0 10px 24px rgba(0,0,0,.04);
     }
-    .card h3{margin:0 0 8px}
-    footer{
-      border-top:1px solid var(--border);
-      padding:26px 16px;
-      color:var(--muted);
-      text-align:center;
+    .card h3{
+      margin:0 0 6px;
+      font-size:18px;
+      font-weight:800;
     }
 
-    /* Mobile */
-    @media (max-width: 880px){
-      .nav{display:none;}
-      .cards{grid-template-columns:1fr;}
-      .hero h1{font-size:36px}
+    /* ===== Footer ===== */
+    footer{
+      background:#020617;
+      color:#9ca3af;
+      padding:28px 20px;
+      text-align:center;
+      font-size:14px;
     }
+
+    /* Scroll offset for sticky header */
+    section{ scroll-margin-top:80px; }
   </style>
 </head>
+
 <body>
 
-<header class="topbar">
-  <div class="topbar-inner">
-    <a class="logo" href="#">
-      <span class="logo-badge"></span>
-      <span>SEOZERO</span>
-    </a>
-
-    <ul class="nav" aria-label="주 메뉴">
-      <li>
-        <button type="button">회사소개</button>
-        <div class="mega" role="menu">
-          <div class="mega-grid">
-            <div class="mega-col">
-              <h4>회사소개</h4>
-              <a href="#about">비전</a>
-              <a href="#about">CI 소개</a>
-              <a href="#about">회사 연혁</a>
-              <a href="#about">사회공헌</a>
-              <a href="#about">조직도</a>
-              <a href="#about">찾아오시는 길</a>
-            </div>
-            <div class="mega-col">
-              <h4>기업정보</h4>
-              <a href="#info">재무정보</a>
-              <a href="#info">공시정보</a>
-            </div>
-            <div class="mega-col">
-              <h4>제품소개</h4>
-              <a href="#products">제품군 A</a>
-              <a href="#products">제품군 B</a>
-              <a href="#products">제품군 C</a>
-            </div>
-            <div class="mega-col">
-              <h4>기술현황</h4>
-              <a href="#tech">연구소 소개</a>
-              <a href="#tech">국내외 인증</a>
-            </div>
-            <div class="mega-col">
-              <h4>공지&뉴스</h4>
-              <a href="#news">공지사항</a>
-              <a href="#news">뉴스</a>
-              <a href="#news">홍보자료</a>
-            </div>
-            <div class="mega-col">
-              <h4>고객지원</h4>
-              <a href="#support">Q&A</a>
-              <a href="#support">FAQ</a>
-              <a href="#support">기술/제품 문의</a>
-            </div>
-          </div>
-        </div>
-      </li>
-
-      <li><button type="button" onclick="location.href='#products'">제품소개</button></li>
-      <li><button type="button" onclick="location.href='#tech'">기술현황</button></li>
-      <li><button type="button" onclick="location.href='#news'">공지&뉴스</button></li>
-      <li><button type="button" onclick="location.href='#support'">고객지원</button></li>
-    </ul>
-
-    <div class="tools">
-      <span class="pill">Korean ▾</span>
-      <button class="iconbtn" aria-label="검색">🔎</button>
-    </div>
+<!-- ===== Header ===== -->
+<header>
+  <div class="nav">
+    <div class="logo">(주)루미스</div>
+    <nav class="menu">
+      <a href="#about">회사소개</a>
+      <a href="#history">주요연혁</a>
+      <a href="#agency">대리점현황</a>
+      <a href="#clients">주요거래처</a>
+      <a href="#contact">Contact</a>
+    </nav>
   </div>
 </header>
 
+<!-- ===== Hero ===== -->
 <div class="hero">
-  <div class="hero-inner">
-    <h1>seozero</h1>
-    <p>대분류 메뉴 + 메가메뉴가 있는 회사형 홈페이지 템플릿입니다. 필요한 항목만 채워 넣으면 됩니다.</p>
-    <a class="cta" href="#support">문의하기</a>
-  </div>
+  <h1>LUMIS</h1>
+  <p>전자·반도체 유통의 신뢰 파트너</p>
 </div>
 
+<!-- ===== 회사소개 ===== -->
 <section id="about">
-  <h2 class="section-title">회사 소개</h2>
-  <p class="muted">여기에 회사 한 줄 소개/미션/핵심역량을 넣으세요.</p>
-</section>
-
-<section id="products">
-  <h2 class="section-title">제품 소개</h2>
-  <div class="cards">
-    <div class="card"><h3>제품/서비스 1</h3><p class="muted">설명</p></div>
-    <div class="card"><h3>제품/서비스 2</h3><p class="muted">설명</p></div>
-    <div class="card"><h3>제품/서비스 3</h3><p class="muted">설명</p></div>
-  </div>
-</section>
-
-<section id="tech">
-  <h2 class="section-title">기술 현황</h2>
-  <p class="muted">연구/인증/기술 강점을 요약해 넣으세요.</p>
-</section>
-
-<section id="news">
-  <h2 class="section-title">공지 & 뉴스</h2>
-  <p class="muted">공지사항/뉴스는 처음엔 링크만 걸어도 됩니다.</p>
-</section>
-
-<section id="support">
-  <h2 class="section-title">고객지원</h2>
+  <h2>회사소개</h2>
   <p class="muted">
-    이메일: contact@example.com<br>
-    전화: 010-0000-0000
+    (주)루미스는 1999년 설립 이후 전자·전기 산업 전반에 걸쳐<br>
+    신뢰 기반의 반도체 및 전자부품 공급 파트너로 성장해 왔습니다.<br><br>
+
+    AMOTECH, WELLCOMP, CT MICRO의 공식 대리점으로서<br>
+    LED, MCU를 비롯한 다양한 반도체 및 전자부품을 안정적으로 공급하고 있으며,<br>
+    삼성, LG전자, 쿠쿠, SL, 켐트로닉스, 한국전력공사 등<br>
+    국내 주요 제조·공공 기업과의 장기 거래를 이어오고 있습니다.<br><br>
+
+    (주)루미스는 단순한 유통을 넘어<br>
+    고객의 제품 경쟁력을 함께 고민하는 기술 기반 파트너를 지향합니다.
   </p>
 </section>
 
+<!-- ===== 주요연혁 ===== -->
+<section id="history">
+  <h2>주요연혁</h2>
+  <p class="muted">핵심 성장 이력만 간결하게 정리했습니다.</p>
+
+  <div class="cards">
+    <div class="card">
+      <h3>1999</h3>
+      <p class="muted">우진전자 설립<br>일진전자(현 AMOTECH) 대리점</p>
+    </div>
+    <div class="card">
+      <h3>2002</h3>
+      <p class="muted">(주)루미스 법인 전환<br>자본금 추가 투자</p>
+    </div>
+    <div class="card">
+      <h3>2003~2009</h3>
+      <p class="muted">LED·MCU·조명 사업 확대<br>LG전자, 대기업 벤더 공급</p>
+    </div>
+    <div class="card">
+      <h3>2019</h3>
+      <p class="muted">CT MICRO / WELLCOMP / AME 등<br>공식 대리점 확대</p>
+    </div>
+  </div>
+</section>
+
+<!-- ===== 대리점현황 ===== -->
+<section id="agency">
+  <h2>대리점 현황</h2>
+  <p class="muted">공식 파트너사</p>
+
+  <div class="cards">
+    <div class="card"><h3>AMOTECH</h3><p class="muted">공식 대리점</p></div>
+    <div class="card"><h3>WELLCOMP</h3><p class="muted">공식 대리점</p></div>
+    <div class="card"><h3>CT MICRO</h3><p class="muted">공식 대리점</p></div>
+  </div>
+</section>
+
+<!-- ===== 주요거래처 ===== -->
+<section id="clients">
+  <h2>주요거래처</h2>
+  <p class="muted">국내 주요 제조·공공 기업과 함께하고 있습니다.</p>
+
+  <div class="cards">
+    <div class="card"><h3>삼성</h3><p class="muted">TV 등</p></div>
+    <div class="card"><h3>LG전자</h3><p class="muted">HA사업부</p></div>
+    <div class="card"><h3>쿠쿠</h3><p class="muted">밥솥</p></div>
+    <div class="card"><h3>SL</h3><p class="muted">자동차 전조등</p></div>
+    <div class="card"><h3>켐트로닉스</h3><p class="muted">삼성 TV</p></div>
+    <div class="card"><h3>한국전력공사</h3><p class="muted">디지털 계량기</p></div>
+  </div>
+</section>
+
+<!-- ===== Contact ===== -->
+<section id="contact">
+  <h2>Contact</h2>
+
+  <div class="cards">
+    <div class="card">
+      <h3>TEL</h3>
+      <p class="muted">051-806-1347</p>
+    </div>
+    <div class="card">
+      <h3>FAX</h3>
+      <p class="muted">051-809-7347</p>
+    </div>
+    <div class="card">
+      <h3>Address</h3>
+      <p class="muted">
+        부산광역시 부산진구 전포대로199번길 15<br>
+        현대타워오피스텔 1층 103호<br>
+        주식회사 루미스
+      </p>
+    </div>
+  </div>
+</section>
+
+<!-- ===== Footer ===== -->
 <footer>
-  © 2026 SEOZERO. All rights reserved.
+  © LUMIS Co., Ltd. All rights reserved.
 </footer>
 
 </body>
