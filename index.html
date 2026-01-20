@@ -5,6 +5,23 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>(주)루미스 | 공식 홈페이지</title>
 
+  <!-- SEO -->
+  <meta name="description" content="(주)루미스는 전자·반도체 유통의 신뢰 파트너로서 LED, MCU 등 반도체/전자부품을 안정적으로 공급합니다." />
+  <meta name="keywords" content="루미스, LUMIS, 반도체 유통, 전자부품, LED, MCU, AMOTECH, WELLCOMP, CT MICRO, 부산" />
+  <meta name="robots" content="index, follow" />
+
+  <!-- Open Graph (Kakao/Meta share) -->
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="(주)루미스 | 공식 홈페이지" />
+  <meta property="og:description" content="전자·반도체 유통의 신뢰 파트너 (주)루미스. LED, MCU 등 반도체/전자부품을 안정적으로 공급합니다." />
+  <meta property="og:image" content="og-image.png" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta property="og:locale" content="ko_KR" />
+
+  <!-- Twitter (optional) -->
+  <meta name="twitter:card" content="summary_large_image" />
+
   <style>
     :root{
       --bg:#ffffff;
@@ -29,7 +46,7 @@
       line-height:1.65;
     }
     a{ color:inherit; text-decoration:none; }
-    button{ font-family:inherit; }
+    button, input, textarea{ font-family:inherit; }
     :focus-visible{ outline:none; box-shadow:var(--ring); border-radius:10px; }
 
     /* ===== Header ===== */
@@ -49,6 +66,7 @@
       align-items:center;
       justify-content:space-between;
       gap:12px;
+      position:relative;
     }
 
     /* Top brand */
@@ -172,7 +190,6 @@
       letter-spacing:-0.6px;
     }
     .muted{ color:var(--muted); max-width:920px; }
-    .divider{ height:1px; background:var(--line); margin:18px 0 0; }
 
     /* ===== Hero (About) ===== */
     .hero{
@@ -216,6 +233,8 @@
       justify-content:center;
       flex-wrap:wrap;
     }
+
+    /* ===== Buttons ===== */
     .btn{
       display:inline-flex;
       align-items:center;
@@ -236,6 +255,23 @@
       border-color:rgba(37,99,235,.9);
     }
     .btn.primary:hover{ background:rgba(37,99,235,1); }
+
+    .btn2{
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      padding:10px 12px;
+      border-radius:12px;
+      font-weight:900;
+      font-size:14px;
+      border:1px solid var(--line);
+      background:#fff;
+      color:var(--ink);
+      cursor:pointer;
+      box-shadow:var(--shadow);
+      transition:transform .12s ease;
+    }
+    .btn2:hover{ transform:translateY(-1px); }
 
     /* ===== Cards ===== */
     .cards{
@@ -356,6 +392,49 @@
       }
     }
 
+    /* ===== Contact form ===== */
+    .form{
+      margin-top:10px;
+      display:grid;
+      gap:12px;
+    }
+    .form-grid{
+      display:grid;
+      grid-template-columns:1fr 1fr;
+      gap:12px;
+    }
+    @media (max-width:700px){
+      .form-grid{ grid-template-columns:1fr; }
+    }
+    label{
+      display:block;
+      font-size:13px;
+      font-weight:900;
+      color:#111;
+      margin:0 0 6px;
+      letter-spacing:-0.2px;
+    }
+    input, textarea{
+      width:100%;
+      border:1px solid var(--line);
+      border-radius:12px;
+      padding:12px 12px;
+      font-size:14px;
+      outline:none;
+    }
+    textarea{ min-height:130px; resize:vertical; }
+    .form-actions{
+      display:flex;
+      gap:10px;
+      flex-wrap:wrap;
+      align-items:center;
+    }
+    .note{
+      color:var(--muted);
+      font-size:12px;
+      margin:0;
+    }
+
     /* ===== Footer ===== */
     footer{
       background:var(--nav2);
@@ -367,7 +446,7 @@
 
     @media (prefers-reduced-motion: reduce){
       html{ scroll-behavior:auto; }
-      .btn{ transition:none; }
+      .btn, .btn2{ transition:none; }
     }
   </style>
 </head>
@@ -395,6 +474,7 @@
           <a href="#agency">대리점현황</a>
           <a href="#clients">주요거래처</a>
           <a href="#contact">Contact</a>
+          <a href="#en">EN</a>
         </nav>
       </div>
     </div>
@@ -720,26 +800,106 @@
       </div>
     </section>
 
-    <!-- Contact -->
+    <!-- Contact + Form + Map -->
     <section id="contact" class="page">
       <h2>Contact</h2>
       <p class="muted">문의 주시면 빠르게 회신드리겠습니다.</p>
 
       <div class="cards">
         <div class="card">
-          <h3>TEL</h3>
-          <p class="muted">051-806-1347</p>
+          <h3>대표 연락처</h3>
+          <p class="muted" style="margin:0;">
+            TEL: <a class="link" href="tel:0518061347">051-806-1347</a><br>
+            FAX: 051-809-7347
+          </p>
         </div>
-        <div class="card">
-          <h3>FAX</h3>
-          <p class="muted">051-809-7347</p>
-        </div>
+
         <div class="card">
           <h3>주소</h3>
-          <p class="muted">
+          <p class="muted" style="margin:0 0 10px;">
             부산광역시 부산진구 전포대로199번길 15<br>
             현대타워오피스텔 1층 103호<br>
             주식회사 루미스
+          </p>
+          <div class="form-actions">
+            <a class="btn2" href="https://map.kakao.com/link/search/%EB%B6%80%EC%82%B0%EA%B4%91%EC%97%AD%EC%8B%9C%20%EB%B6%80%EC%82%B0%EC%A7%84%EA%B5%AC%20%EC%A0%84%ED%8F%AC%EB%8C%80%EB%A1%9C199%EB%B2%88%EA%B8%B8%2015" target="_blank" rel="noopener">카카오지도</a>
+            <a class="btn2" href="https://map.naver.com/v5/search/%EB%B6%80%EC%82%B0%EA%B4%91%EC%97%AD%EC%8B%9C%20%EB%B6%80%EC%82%B0%EC%A7%84%EA%B5%AC%20%EC%A0%84%ED%8F%AC%EB%8C%80%EB%A1%9C199%EB%B2%88%EA%B8%B8%2015" target="_blank" rel="noopener">네이버지도</a>
+            <button class="btn2" type="button" id="copyAddress">주소 복사</button>
+          </div>
+          <p class="note" style="margin-top:10px;">※ 지도 임베드(화면 내 지도 표시)도 가능하지만, 보통 키/설정이 필요해요.</p>
+        </div>
+
+        <div class="card">
+          <h3>문의 폼</h3>
+          <p class="note" style="margin-top:0;">
+            아래 내용을 작성 후 “메일로 보내기”를 누르면 메일 앱이 열립니다. (서버 없이 GitHub Pages에서 안전하게 동작)
+          </p>
+
+          <form class="form" id="contactForm">
+            <div class="form-grid">
+              <div>
+                <label for="name">이름</label>
+                <input id="name" name="name" type="text" placeholder="홍길동" required />
+              </div>
+              <div>
+                <label for="company">회사명</label>
+                <input id="company" name="company" type="text" placeholder="OO전자" />
+              </div>
+              <div>
+                <label for="email">이메일</label>
+                <input id="email" name="email" type="email" placeholder="example@email.com" required />
+              </div>
+              <div>
+                <label for="phone">연락처</label>
+                <input id="phone" name="phone" type="tel" placeholder="010-0000-0000" />
+              </div>
+            </div>
+
+            <div>
+              <label for="message">문의내용</label>
+              <textarea id="message" name="message" placeholder="문의 내용을 입력해주세요." required></textarea>
+            </div>
+
+            <div class="form-actions">
+              <button class="btn2" type="submit">메일로 보내기</button>
+              <button class="btn2" type="button" id="clearForm">초기화</button>
+            </div>
+          </form>
+
+          <p class="note">
+            ※ 현재 수신 이메일 주소는 코드에서 설정합니다. (원하는 수신 메일 주소로 바꿔드릴게요)
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- English page -->
+    <section id="en" class="page">
+      <h2>About LUMIS (English)</h2>
+      <p class="muted">
+        LUMIS Co., Ltd. has been a trusted distribution partner in the electronics and semiconductor industry since 1999.
+        As an official agency of AMOTECH, WELLCOMP, and CT MICRO, we provide reliable supply and responsive support for
+        LED, MCU, and various electronic components.
+      </p>
+
+      <div class="cards">
+        <div class="card">
+          <h3>Founded</h3>
+          <p class="muted">1999</p>
+        </div>
+        <div class="card">
+          <h3>Business</h3>
+          <p class="muted">LED · MCU · Semiconductor / Electronic components</p>
+        </div>
+        <div class="card">
+          <h3>Official Partners</h3>
+          <p class="muted">AMOTECH · WELLCOMP · CT MICRO and more</p>
+        </div>
+        <div class="card">
+          <h3>Contact</h3>
+          <p class="muted" style="margin:0;">
+            TEL: <a class="link" href="tel:0518061347">+82-51-806-1347</a><br>
+            Address: 15, Jeonpo-daero 199beon-gil, Busanjin-gu, Busan, Korea
           </p>
         </div>
       </div>
@@ -760,14 +920,11 @@
       menu.classList.toggle('open', isOpen);
       toggleBtn.setAttribute('aria-expanded', String(isOpen));
     }
-
     function closeMenu(){ setMenu(false); }
-    function openMenu(){ setMenu(true); }
     function toggleMenu(){
       const isOpen = menu.classList.contains('open');
       setMenu(!isOpen);
     }
-
     toggleBtn.addEventListener('click', toggleMenu);
 
     // Close menu when clicking outside (mobile)
@@ -777,7 +934,6 @@
         if (!inside) closeMenu();
       }
     });
-
     // ESC to close
     document.addEventListener('keydown', (e) => {
       if (e.key === 'Escape') closeMenu();
@@ -821,6 +977,52 @@
 
     const first = location.hash.replace('#','') || 'about';
     showPage(first);
+
+    // Copy address
+    const addressText = "부산광역시 부산진구 전포대로199번길 15 현대타워오피스텔 1층 103호 주식회사 루미스";
+    document.getElementById('copyAddress')?.addEventListener('click', async () => {
+      try{
+        await navigator.clipboard.writeText(addressText);
+        alert("주소가 복사되었습니다.");
+      }catch(e){
+        // Fallback
+        const t = document.createElement('textarea');
+        t.value = addressText;
+        document.body.appendChild(t);
+        t.select();
+        document.execCommand('copy');
+        document.body.removeChild(t);
+        alert("주소가 복사되었습니다.");
+      }
+    });
+
+    // Contact form -> mailto
+    const TO_EMAIL = "woojin1347@hanmail.net"; //
+    document.getElementById('contactForm')?.addEventListener('submit', (e) => {
+      e.preventDefault();
+
+      const name = document.getElementById('name').value.trim();
+      const company = document.getElementById('company').value.trim();
+      const email = document.getElementById('email').value.trim();
+      const phone = document.getElementById('phone').value.trim();
+      const message = document.getElementById('message').value.trim();
+
+      const subject = encodeURIComponent(`[문의] ${name}${company ? " / " + company : ""}`);
+      const body = encodeURIComponent(
+        `이름: ${name}\n` +
+        `회사명: ${company || "-"}\n` +
+        `이메일: ${email}\n` +
+        `연락처: ${phone || "-"}\n\n` +
+        `문의내용:\n${message}\n`
+      );
+
+      window.location.href = `mailto:${TO_EMAIL}?subject=${subject}&body=${body}`;
+    });
+
+    // Clear form
+    document.getElementById('clearForm')?.addEventListener('click', () => {
+      document.getElementById('contactForm').reset();
+    });
   </script>
 </body>
 </html>
