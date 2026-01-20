@@ -2,8 +2,8 @@
 <html lang="ko">
 <head>
   <meta charset="UTF-8" />
-  <title>(주)루미스 | 공식 홈페이지</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>(주)루미스 | 공식 홈페이지</title>
 
   <style>
     :root{
@@ -17,7 +17,6 @@
       --shadow:0 10px 24px rgba(0,0,0,.06);
       --radius:16px;
     }
-  
 
     *{ box-sizing:border-box; }
     body{
@@ -41,24 +40,38 @@
     .nav{
       max-width:1200px;
       margin:0 auto;
-      padding:14px 18px;
+      padding:12px 18px;
       display:flex;
       align-items:center;
       justify-content:space-between;
       gap:12px;
     }
-    .logo{
+
+    /* Top brand */
+    .top-brand{
+      display:flex;
+      align-items:center;
+      gap:10px;
+      min-width:220px;
+    }
+    .top-logo{
+      height:40px;
+      width:auto;
+      display:block;
+    }
+    .top-name{
       font-weight:900;
       letter-spacing:-0.4px;
-      font-size:18px;
+      font-size:16px;
       white-space:nowrap;
     }
+
     .menu{
       display:flex;
       align-items:center;
-      gap:20px;
+      gap:14px;
       font-size:14px;
-      font-weight:700;
+      font-weight:800;
       flex-wrap:wrap;
       justify-content:flex-end;
     }
@@ -83,73 +96,61 @@
     }
     .page{
       display:none;
-      padding:42px 0 90px;
+      padding:38px 0 90px;
     }
     .page.active{ display:block; }
 
     h2{
-      margin:0 0 12px;
+      margin:0 0 10px;
       font-size:28px;
       font-weight:900;
       letter-spacing:-0.6px;
     }
-    .muted{ color:var(--muted); max-width:900px; }
+    .muted{ color:var(--muted); max-width:920px; }
     .divider{ height:1px; background:var(--line); margin:18px 0 0; }
 
-    /* ===== Hero (only on About page) ===== */
+    /* ===== Hero (About) ===== */
     .hero{
       border-radius:20px;
       background:linear-gradient(135deg,var(--nav2),var(--nav));
       color:#fff;
-      padding:64px 18px;
-      margin:18px 0 28px;
+      padding:44px 18px;
+      margin:18px 0 24px;
       text-align:center;
       box-shadow:var(--shadow);
     }
-.brand{
-  display:flex;
-  justify-content:center;
-  align-items:center;
-  margin-bottom:12px;
-}
-
-.logo{
-  max-height:72px;
-  width:auto;
-}
-
-@media (max-width:768px){
-  .logo{ max-height:52px; }
-}
-    .hero h1{
-      margin:0;
-      font-size:42px;
-      font-weight:900;
-      letter-spacing:-1px;
+    .hero-logo{
+      max-width:520px;
+      width:100%;
+      height:auto;
+      display:block;
+      margin:0 auto 10px;
+      background:transparent;
     }
     .hero p{
-      margin:14px 0 0;
+      margin:10px 0 0;
       color:#cbd5f5;
       font-size:16px;
+      font-weight:700;
     }
 
     /* ===== Cards ===== */
     .cards{
-      margin-top:22px;
+      margin-top:18px;
       display:grid;
       grid-template-columns:repeat(auto-fit, minmax(240px, 1fr));
-      gap:18px;
+      gap:16px;
     }
     .card{
       border:1px solid var(--line);
       border-radius:var(--radius);
       background:#fff;
-      padding:18px 18px;
+      padding:16px 16px;
       box-shadow:var(--shadow);
     }
     .card h3{
-      margin:0 0 8px;
-      font-size:17px;
+      margin:0 0 6px;
+      font-size:16px;
       font-weight:900;
       letter-spacing:-0.2px;
     }
@@ -162,9 +163,9 @@
     }
     .bullet li{ margin:4px 0; }
 
-    /* ===== History timeline (simple) ===== */
+    /* ===== History timeline ===== */
     .timeline{
-      margin-top:22px;
+      margin-top:18px;
       display:grid;
       gap:14px;
     }
@@ -184,16 +185,15 @@
       font-size:16px;
       color:#111;
     }
-    .t-row .bullet{ margin-top:2px; }
-
     @media (max-width:700px){
       .t-row{ grid-template-columns:1fr; }
       .t-year{ font-size:18px; }
+      .top-name{ display:none; } /* 모바일에서 헤더 깔끔 */
     }
 
     /* ===== Agency table ===== */
     .agency-table-wrap{
-      margin-top:22px;
+      margin-top:18px;
       border:1px solid var(--line);
       border-radius:var(--radius);
       overflow:hidden;
@@ -259,7 +259,7 @@
       background:var(--nav2);
       color:#9ca3af;
       text-align:center;
-      padding:24px 18px;
+      padding:22px 18px;
       font-size:13px;
     }
   </style>
@@ -269,10 +269,10 @@
   <!-- Header -->
   <header>
     <div class="nav">
-      <a class="top-brand" href="#about">
-  <img src="루미스%20로고.png" alt="(주)루미스 로고" class="top-logo">
-  <span class="top-name">(주)루미스</span>
-</a>
+      <a class="top-brand" href="#about" aria-label="LUMIS 홈">
+        <img src="lumis-logo.png" alt="(주)루미스 로고" class="top-logo">
+        <span class="top-name">(주)루미스</span>
+      </a>
 
       <nav class="menu">
         <a href="#about" class="active">회사소개</a>
@@ -288,13 +288,10 @@
 
     <!-- 회사소개 -->
     <section id="about" class="page active">
-    <div class="hero">
-  <div class="brand">
-    <img src="루미스%20로고.png" alt="(주)루미스 LUMIS 로고" class="logo">
-  </div>
-  <p>전자·반도체 유통의 신뢰 파트너</p>
-</div>
-
+      <div class="hero">
+        <img src="lumis-logo.png" alt="(주)루미스 로고" class="hero-logo">
+        <p>전자·반도체 유통의 신뢰 파트너</p>
+      </div>
 
       <h2>회사소개</h2>
       <p class="muted">
@@ -333,105 +330,85 @@
       <div class="timeline">
         <div class="t-row">
           <div class="t-year">1999</div>
-          <div>
-            <ul class="bullet">
-              <li>우진전자 설립</li>
-              <li>일진전자 정식 대리점 (현 AMOTECH)</li>
-            </ul>
-          </div>
+          <ul class="bullet">
+            <li>우진전자 설립</li>
+            <li>일진전자 정식 대리점 (현 AMOTECH)</li>
+          </ul>
         </div>
 
         <div class="t-row">
           <div class="t-year">2002</div>
-          <div>
-            <ul class="bullet">
-              <li>(주)루미스 법인으로 변경</li>
-              <li>자본금 투자 추가</li>
-            </ul>
-          </div>
+          <ul class="bullet">
+            <li>(주)루미스 법인으로 변경</li>
+            <li>자본금 투자 추가</li>
+          </ul>
         </div>
 
         <div class="t-row">
           <div class="t-year">2003</div>
-          <div>
-            <ul class="bullet">
-              <li>HARVATEK 대리점</li>
-              <li>LED TECH 대리점</li>
-              <li>LED 전문 업체로서 부산·경남 영업 교두보 마련</li>
-            </ul>
-          </div>
+          <ul class="bullet">
+            <li>HARVATEK 대리점</li>
+            <li>LED TECH 대리점</li>
+            <li>LED 전문 업체로서 부산·경남 영업 교두보 마련</li>
+          </ul>
         </div>
 
         <div class="t-row">
           <div class="t-year">2004</div>
-          <div>
-            <ul class="bullet">
-              <li>모빌 일렉트론 대리점 지정</li>
-            </ul>
-          </div>
+          <ul class="bullet">
+            <li>모빌 일렉트론 대리점 지정</li>
+          </ul>
         </div>
 
         <div class="t-row">
           <div class="t-year">2005</div>
-          <div>
-            <ul class="bullet">
-              <li>도시바 SUB업체 지정</li>
-              <li>MICOM 등 영업 활성화 기틀 마련</li>
-            </ul>
-          </div>
+          <ul class="bullet">
+            <li>도시바 SUB업체 지정</li>
+            <li>MICOM 등 영업 활성화 기틀 마련</li>
+          </ul>
         </div>
 
         <div class="t-row">
           <div class="t-year">2006</div>
-          <div>
-            <ul class="bullet">
-              <li>중소기업 지역 우수업체 선정 (신용기술보증)</li>
-            </ul>
-          </div>
+          <ul class="bullet">
+            <li>중소기업 지역 우수업체 선정 (신용기술보증)</li>
+          </ul>
         </div>
 
         <div class="t-row">
           <div class="t-year">2007</div>
-          <div>
-            <ul class="bullet">
-              <li>캡트로닉스 영남 정식 대리점 (TOUCH IC)</li>
-              <li>LG전자 1차 VENDOR 영업 활성화</li>
-            </ul>
-          </div>
+          <ul class="bullet">
+            <li>캡트로닉스 영남 정식 대리점 (TOUCH IC)</li>
+            <li>LG전자 1차 VENDOR 영업 활성화</li>
+          </ul>
         </div>
 
         <div class="t-row">
           <div class="t-year">2008</div>
-          <div>
-            <ul class="bullet">
-              <li>환율 인하로 환차손 발생 등에도 매출 계획 대비 88% 달성</li>
-              <li>MICOM 기반 개발 지원 가능 (기술 연구소 마련 → 자체 개발 지원)</li>
-            </ul>
-          </div>
+          <ul class="bullet">
+            <li>환율 인하로 환차손 발생 등에도 매출 계획 대비 88% 달성</li>
+            <li>MICOM 기반 개발 지원 가능 (기술 연구소 마련 → 자체 개발 지원)</li>
+          </ul>
         </div>
 
         <div class="t-row">
           <div class="t-year">2009</div>
-          <div>
-            <ul class="bullet">
-              <li>고내등·LED 형광등·써치등 등 조명 영업 본격화</li>
-              <li>LG전자 WHITE LED(1608) 연간 50M개 이상 공급, COLOR별 공급 확대</li>
-              <li>일산전자(LG전자) 감사패 수여, 협력업체 중 우수업체 선정</li>
-            </ul>
-          </div>
+          <ul class="bullet">
+            <li>고내등·LED 형광등·써치등 등 조명 영업 본격화</li>
+            <li>LG전자 WHITE LED(1608) 연간 50M개 이상 공급, COLOR별 공급 확대</li>
+            <li>일산전자(LG전자) 감사패 수여, 협력업체 중 우수업체 선정</li>
+          </ul>
         </div>
 
         <div class="t-row">
           <div class="t-year">2019</div>
-          <div>
-            <ul class="bullet">
-              <li>지수 설립</li>
-              <li>BRUCKEWELL 정식 대리점 등록</li>
-              <li>AME 정식 대리점 등록</li>
-              <li>CT MICRO 정식 대리점 등록</li>
-              <li>WELLCOMP 정식 대리점 등록</li>
-            </ul>
-          </div>
+          <ul class="bullet">
+            <li>지수 설립</li>
+            <li>BRUCKEWELL 정식 대리점 등록</li>
+            <li>AME 정식 대리점 등록</li>
+            <li>CT MICRO 정식 대리점 등록</li>
+            <li>WELLCOMP 정식 대리점 등록</li>
+          </ul>
         </div>
       </div>
     </section>
@@ -458,7 +435,8 @@
               <td><strong>아모텍</strong><br><span class="muted-sm">AMOTECH</span></td>
               <td>
                 <ul class="list">
-                  <li>AMOTECH · MLCC · Varistor</li>
+                  <li>MLCC</li>
+                  <li>Varistor</li>
                 </ul>
               </td>
               <td>
@@ -468,22 +446,22 @@
               </td>
             </tr>
 
-       <tr>
-  <td><strong>브럭웰</strong><br><span class="muted-sm">BRUCKEWELL</span></td>
-  <td>
-    <ul class="list">
-      <li>MOSFET</li>
-      <li>TVS / ESD / EMI</li>
-      <li>Diode</li>
-      <li>Bare Die</li>
-    </ul>
-  </td>
-  <td>
-    <a class="link" href="https://www.bruckewell-semi.com/" target="_blank" rel="noopener">
-      https://www.bruckewell-semi.com/
-    </a>
-  </td>
-</tr>
+            <tr>
+              <td><strong>브럭웰</strong><br><span class="muted-sm">BRUCKEWELL</span></td>
+              <td>
+                <ul class="list">
+                  <li>MOSFET</li>
+                  <li>TVS / ESD / EMI</li>
+                  <li>Diode</li>
+                  <li>Bare Die</li>
+                </ul>
+              </td>
+              <td>
+                <a class="link" href="https://www.bruckewell-semi.com/" target="_blank" rel="noopener">
+                  https://www.bruckewell-semi.com/
+                </a>
+              </td>
+            </tr>
 
             <tr>
               <td><strong>호쿠리쿠</strong><br><span class="muted-sm">HOKURIKU</span></td>
@@ -650,9 +628,7 @@
 
   <script>
     function showPage(id){
-      const pages = document.querySelectorAll('.page');
-      pages.forEach(p => p.classList.remove('active'));
-
+      document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
       const target = document.getElementById(id);
       if (target) target.classList.add('active');
 
