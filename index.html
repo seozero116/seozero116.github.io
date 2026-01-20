@@ -2,101 +2,278 @@
 <html lang="ko">
 <head>
   <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>seozero | 공식 홈페이지</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <style>
-    body {
-      margin: 0;
-      font-family: -apple-system, BlinkMacSystemFont,
-        "Apple SD Gothic Neo", "Noto Sans KR", "Malgun Gothic", sans-serif;
-      color: #222;
-      line-height: 1.6;
+    :root{
+      --bg:#0b1220;
+      --text:#111;
+      --brand:#e11d2e;
+      --muted:#6b7280;
+      --border:#e5e7eb;
+      --card:#fff;
+      --max:1100px;
     }
-    header {
-      background: #0f172a;
-      color: #fff;
-      padding: 80px 20px;
-      text-align: center;
+    *{box-sizing:border-box}
+    body{margin:0;font-family:-apple-system,BlinkMacSystemFont,"Apple SD Gothic Neo","Noto Sans KR","Malgun Gothic",sans-serif;color:var(--text)}
+    a{color:inherit;text-decoration:none}
+
+    /* Top bar */
+    .topbar{
+      position:sticky; top:0; z-index:50;
+      background:#fff;
+      border-bottom:1px solid var(--border);
     }
-    section {
-      max-width: 900px;
-      margin: 60px auto;
-      padding: 0 20px;
+    .topbar-inner{
+      max-width:var(--max);
+      margin:0 auto;
+      padding:14px 16px;
+      display:flex;
+      align-items:center;
+      gap:18px;
     }
-    h2 {
-      margin-bottom: 16px;
+    .logo{
+      font-weight:900;
+      letter-spacing:-.5px;
+      display:flex; align-items:center; gap:10px;
+      white-space:nowrap;
     }
-    .services {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-      gap: 20px;
+    .logo-badge{
+      width:28px;height:28px;border-radius:6px;background:var(--brand);
+      display:inline-block;
     }
-    .card {
-      border: 1px solid #ddd;
-      border-radius: 8px;
-      padding: 20px;
+
+    .nav{margin-left:auto; display:flex; gap:18px; align-items:center}
+    .nav > li{list-style:none; position:relative}
+    .nav > li > button{
+      background:transparent;border:0;cursor:pointer;
+      font-size:15px; padding:10px 8px;
     }
-    footer {
-      background: #f4f4f4;
-      text-align: center;
-      padding: 30px 20px;
-      font-size: 14px;
+    .nav > li > button:hover{color:var(--brand)}
+
+    /* Mega menu */
+    .mega{
+      position:absolute;
+      left:50%;
+      transform:translateX(-50%);
+      top:48px;
+      width:min(980px, 92vw);
+      background:#fff;
+      border:1px solid var(--border);
+      border-radius:12px;
+      box-shadow:0 18px 40px rgba(0,0,0,.12);
+      padding:18px 18px 8px;
+      display:none;
     }
-    a.button {
-      display: inline-block;
-      margin-top: 20px;
-      padding: 12px 24px;
-      background: #2563eb;
-      color: #fff;
-      text-decoration: none;
-      border-radius: 6px;
+    .mega-grid{
+      display:grid;
+      grid-template-columns:repeat(6, minmax(0, 1fr));
+      gap:14px;
+    }
+    .mega-col h4{
+      margin:0 0 10px;
+      font-size:14px;
+      color:#111;
+      padding-bottom:10px;
+      border-bottom:2px solid #111;
+    }
+    .mega-col a{
+      display:block;
+      padding:8px 4px;
+      font-size:14px;
+      color:#222;
+      border-radius:8px;
+    }
+    .mega-col a:hover{
+      background:#f3f4f6;
+      color:var(--brand);
+    }
+
+    /* show mega on hover (desktop) */
+    @media (hover:hover){
+      .nav > li:hover .mega{display:block;}
+    }
+
+    /* Right tools */
+    .tools{display:flex; gap:10px; align-items:center}
+    .pill{
+      border:1px solid var(--border);
+      padding:8px 10px;
+      border-radius:999px;
+      font-size:13px;
+      color:#111;
+      background:#fff;
+    }
+    .iconbtn{
+      width:36px;height:36px;border-radius:10px;border:1px solid var(--border);
+      background:#fff; cursor:pointer;
+    }
+
+    /* Hero */
+    .hero{
+      background:linear-gradient(180deg, var(--bg), #050915);
+      color:#fff;
+      padding:80px 16px 70px;
+    }
+    .hero-inner{
+      max-width:var(--max);
+      margin:0 auto;
+      text-align:center;
+    }
+    .hero h1{margin:0 0 10px; font-size:44px; letter-spacing:-1px}
+    .hero p{margin:0 auto 22px; max-width:680px; color:#d1d5db}
+    .cta{
+      display:inline-block;
+      padding:12px 18px;
+      border-radius:10px;
+      background:#2563eb;
+      color:#fff;
+      font-weight:700;
+    }
+
+    /* Sections */
+    section{max-width:var(--max); margin:56px auto; padding:0 16px}
+    .section-title{margin:0 0 14px; font-size:26px}
+    .muted{color:var(--muted)}
+    .cards{
+      display:grid;
+      grid-template-columns:repeat(3, minmax(0, 1fr));
+      gap:16px;
+      margin-top:16px;
+    }
+    .card{
+      background:var(--card);
+      border:1px solid var(--border);
+      border-radius:14px;
+      padding:18px;
+      min-height:120px;
+    }
+    .card h3{margin:0 0 8px}
+    footer{
+      border-top:1px solid var(--border);
+      padding:26px 16px;
+      color:var(--muted);
+      text-align:center;
+    }
+
+    /* Mobile */
+    @media (max-width: 880px){
+      .nav{display:none;}
+      .cards{grid-template-columns:1fr;}
+      .hero h1{font-size:36px}
     }
   </style>
 </head>
 <body>
 
-<header>
-  <h1>seozero</h1>
-  <p>간단한 회사 소개 문구를 여기에 작성하세요</p>
-  <a href="#contact" class="button">문의하기</a>
+<header class="topbar">
+  <div class="topbar-inner">
+    <a class="logo" href="#">
+      <span class="logo-badge"></span>
+      <span>SEOZERO</span>
+    </a>
+
+    <ul class="nav" aria-label="주 메뉴">
+      <li>
+        <button type="button">회사소개</button>
+        <div class="mega" role="menu">
+          <div class="mega-grid">
+            <div class="mega-col">
+              <h4>회사소개</h4>
+              <a href="#about">비전</a>
+              <a href="#about">CI 소개</a>
+              <a href="#about">회사 연혁</a>
+              <a href="#about">사회공헌</a>
+              <a href="#about">조직도</a>
+              <a href="#about">찾아오시는 길</a>
+            </div>
+            <div class="mega-col">
+              <h4>기업정보</h4>
+              <a href="#info">재무정보</a>
+              <a href="#info">공시정보</a>
+            </div>
+            <div class="mega-col">
+              <h4>제품소개</h4>
+              <a href="#products">제품군 A</a>
+              <a href="#products">제품군 B</a>
+              <a href="#products">제품군 C</a>
+            </div>
+            <div class="mega-col">
+              <h4>기술현황</h4>
+              <a href="#tech">연구소 소개</a>
+              <a href="#tech">국내외 인증</a>
+            </div>
+            <div class="mega-col">
+              <h4>공지&뉴스</h4>
+              <a href="#news">공지사항</a>
+              <a href="#news">뉴스</a>
+              <a href="#news">홍보자료</a>
+            </div>
+            <div class="mega-col">
+              <h4>고객지원</h4>
+              <a href="#support">Q&A</a>
+              <a href="#support">FAQ</a>
+              <a href="#support">기술/제품 문의</a>
+            </div>
+          </div>
+        </div>
+      </li>
+
+      <li><button type="button" onclick="location.href='#products'">제품소개</button></li>
+      <li><button type="button" onclick="location.href='#tech'">기술현황</button></li>
+      <li><button type="button" onclick="location.href='#news'">공지&뉴스</button></li>
+      <li><button type="button" onclick="location.href='#support'">고객지원</button></li>
+    </ul>
+
+    <div class="tools">
+      <span class="pill">Korean ▾</span>
+      <button class="iconbtn" aria-label="검색">🔎</button>
+    </div>
+  </div>
 </header>
 
-<section>
-  <h2>회사 소개</h2>
-  <p>
-    이 홈페이지는 GitHub Pages로 만든 간단한 회사/개인 사이트입니다.
-    필요한 정보만 깔끔하게 전달하는 것을 목표로 합니다.
-  </p>
+<div class="hero">
+  <div class="hero-inner">
+    <h1>seozero</h1>
+    <p>대분류 메뉴 + 메가메뉴가 있는 회사형 홈페이지 템플릿입니다. 필요한 항목만 채워 넣으면 됩니다.</p>
+    <a class="cta" href="#support">문의하기</a>
+  </div>
+</div>
+
+<section id="about">
+  <h2 class="section-title">회사 소개</h2>
+  <p class="muted">여기에 회사 한 줄 소개/미션/핵심역량을 넣으세요.</p>
 </section>
 
-<section>
-  <h2>서비스</h2>
-  <div class="services">
-    <div class="card">
-      <h3>서비스 1</h3>
-      <p>서비스 설명</p>
-    </div>
-    <div class="card">
-      <h3>서비스 2</h3>
-      <p>서비스 설명</p>
-    </div>
-    <div class="card">
-      <h3>서비스 3</h3>
-      <p>서비스 설명</p>
-    </div>
+<section id="products">
+  <h2 class="section-title">제품 소개</h2>
+  <div class="cards">
+    <div class="card"><h3>제품/서비스 1</h3><p class="muted">설명</p></div>
+    <div class="card"><h3>제품/서비스 2</h3><p class="muted">설명</p></div>
+    <div class="card"><h3>제품/서비스 3</h3><p class="muted">설명</p></div>
   </div>
 </section>
 
-<section id="contact">
-  <h2>문의</h2>
-  <p>
-    이메일: contact@example.com<br />
+<section id="tech">
+  <h2 class="section-title">기술 현황</h2>
+  <p class="muted">연구/인증/기술 강점을 요약해 넣으세요.</p>
+</section>
+
+<section id="news">
+  <h2 class="section-title">공지 & 뉴스</h2>
+  <p class="muted">공지사항/뉴스는 처음엔 링크만 걸어도 됩니다.</p>
+</section>
+
+<section id="support">
+  <h2 class="section-title">고객지원</h2>
+  <p class="muted">
+    이메일: contact@example.com<br>
     전화: 010-0000-0000
   </p>
 </section>
 
 <footer>
-  © 2026 seozero. All rights reserved.
+  © 2026 SEOZERO. All rights reserved.
 </footer>
 
 </body>
